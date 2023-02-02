@@ -1,7 +1,9 @@
 package com.bmicro.bootcoin.service;
 
 import com.bmicro.bootcoin.entity.BootCoin;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BootCoinService {
 
     private final BootCoinEventsService bootCoinEventsService;

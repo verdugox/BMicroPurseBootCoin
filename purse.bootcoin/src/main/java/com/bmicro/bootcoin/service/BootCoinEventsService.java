@@ -2,6 +2,7 @@ package com.bmicro.bootcoin.service;
 
 import com.bmicro.bootcoin.entity.BootCoin;
 import com.bmicro.bootcoin.events.BootCoinCreatedEvent;
+import com.bmicro.bootcoin.events.Event;
 import com.bmicro.bootcoin.events.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,9 +16,9 @@ import java.util.UUID;
 public class BootCoinEventsService {
 
     @Autowired
-    private KafkaTemplate<String, BootCoinCreatedEvent> producer;
+    private KafkaTemplate<String, Event<?>> producer;
 
-    @Value("${topic.BootCoin.name:BootCoin}")
+    @Value("${topic.bootCoin.name:bootCoins}")
     private String topicBootCoin;
 
     public void publish(BootCoin bootCoin) {
